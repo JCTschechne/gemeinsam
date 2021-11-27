@@ -24,7 +24,35 @@ public class Main {
     }
 
     static int findeKaeferInBaum(Baum baum) {
-        // Bitte hier die Lösung eintragen
-        return 0;
+        return findeKaeferInBaumSchleife(baum);
+    }
+
+
+    static int findeKaeferInBaumSchleife(Baum baum){
+        int anzahlKaefer = 0;
+        for(Ast ast : baum.getAeste()){
+            anzahlKaefer += findeKeaferInAstSchleife(ast);
+        }
+        return anzahlKaefer;
+    }
+
+     static int findeKeaferInAstSchleife(Ast ast) {
+        int anzahlKaefer = 0;
+        for(Blatt blatt : ast.getBlaetter()){
+            if(blatt.hatKaefer()) anzahlKaefer++;
+        }
+        for(Ast kinderAst : ast.getAeste()){
+            anzahlKaefer += findeKeaferInAstStream(kinderAst);
+        }
+        return anzahlKaefer;
+    }
+
+    static int findeKaeferInBaumStream(Baum baum) {
+        return baum.getAeste().stream().mapToInt(Main::findeKeaferInAstStream).sum();
+    }
+
+    static int findeKeaferInAstStream(Ast ast){
+        return ast.getAeste().stream().mapToInt(Main::findeKeaferInAstStream).sum() +
+                (int) ast.getBlaetter().stream().filter(Blatt::hatKaefer).count();
     }
 }
