@@ -37,26 +37,26 @@ class Test {
                     Collections.emptyList()
             )
     ));
-    private static int anzahlTestKeaferInBaum = 6;
-    private static int anzahlTestKeaferImErstenAst = 5;
+    private static final int ANZAHL_KEAFER_IN_BAUM = 6;
+    private static final int ANZAHL_KEAFER_IM_ERSTEN_AST = 5;
 
     @org.junit.jupiter.api.Test
     void findeKaeferInBaumSchleife() {
-        assertEquals(anzahlTestKeaferInBaum, Main.findeKaeferInBaumSchleife(TEST_BAUM));
+        assertEquals(ANZAHL_KEAFER_IN_BAUM, Main.findeKaeferInBaumSchleife(TEST_BAUM));
     }
 
     @org.junit.jupiter.api.Test
     void findeKeaferInAstSchleife() {
-        assertEquals(anzahlTestKeaferImErstenAst, Main.findeKeaferInAstSchleife(TEST_BAUM.getAeste().get(0)));
+        assertEquals(ANZAHL_KEAFER_IM_ERSTEN_AST, Main.findeKeaferInAstSchleife(TEST_BAUM.getAeste().get(0)));
     }
 
     @org.junit.jupiter.api.Test
     void findeKaeferInBaumStream() {
-        assertEquals(anzahlTestKeaferInBaum, Main.findeKaeferInBaumStream(TEST_BAUM));
+        assertEquals(ANZAHL_KEAFER_IN_BAUM, Main.findeKaeferInBaumStream(TEST_BAUM));
     }
 
     @org.junit.jupiter.api.Test
     void findeKeaferInAstStream() {
-        assertEquals(anzahlTestKeaferImErstenAst, Main.findeKeaferInAstStream(TEST_BAUM.getAeste().get(0)));
+        assertEquals(ANZAHL_KEAFER_IM_ERSTEN_AST, Main.findeKeaferInAstStream(TEST_BAUM.getAeste().get(0)));
     }
 }
